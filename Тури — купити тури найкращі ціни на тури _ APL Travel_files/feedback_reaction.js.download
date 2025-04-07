@@ -1,0 +1,42 @@
+$(function () {
+    $('.feedback-action').click(function () {
+        var that = $(this);
+        var feedbackId = that.data('feedback-id');
+        var action = that.data('action');
+
+        if (!that.hasClass('pressed')) { // on back that action will do nothing (ex. /../like/feedbackId/ for
+            // pressed like button
+            $.get('/promo-akcii/feedback/' + action + '/' + feedbackId).success(function (data) {
+                if (data.success || data.changeStatus) {
+                    that.addClass('pressed');
+
+                    var countDiv = that.next('div.count');
+                    var count = isNaN(parseInt(countDiv.text())) ? 0 : parseInt(countDiv.text());
+                    if (count === 0) {
+                        countDiv.text('1')
+                    } else if (action === 'like') {
+                        countDiv.text(count + 1)
+                    } else {
+                        countDiv.text(count - 1)
+                    }
+
+                    if (data.changeStatus) {
+                        if (action === 'like') {
+                            var oppositeAction = 'dislike';
+                        } else {
+                            var oppositeAction = 'like';
+                        }
+
+                        var oppositeActionA = $('a[data-action="' + oppositeAction + '"][data-feedback-id="' + feedbackId + '"]');
+                        oppositeActionA.removeClass('pressed');
+                        var oppositeCountDiv = oppositeActionA.next('div.count');
+                        var oppositeCount = isNaN(parseInt(oppositeCountDiv.text())) ? 0 : parseInt(oppositeCountDiv.text());
+                        if (oppositeCount !== 0) {
+                            oppositeCountDiv.text(oppositeCount - 1)
+                        }
+                    }
+                }
+            });
+        }
+    });
+});

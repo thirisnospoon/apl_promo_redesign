@@ -1,0 +1,34 @@
+.feedback-like {
+    background-image: url("/images/feedback/like-unpressed.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.feedback-like.pressed {
+    background-image: url("/images/feedback/like-pressed.svg");
+}
+
+.feedback-dislike {
+    background-image: url("/images/feedback/dislike-unpressed.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.feedback-dislike.pressed {
+    background-image: url("/images/feedback/dislike-pressed.svg");
+}
+
+.useful-block > div {
+    margin: 0 8px;
+    display: flex;
+}
+
+.useful-block > div > a {
+    margin: 0 3px;
+}
+
+.useful-block > div > a:hover {
+    cursor: pointer;
+}

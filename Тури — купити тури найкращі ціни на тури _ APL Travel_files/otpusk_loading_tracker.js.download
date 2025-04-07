@@ -1,0 +1,65 @@
+// Google events tracking
+$(document).ready(function() {
+    var toursLoadingStarted = undefined;
+    var toursLoadingCounter = 0;
+    var toursLoadingInterval = setInterval(function () {
+        toursLoadingCounter ++;
+
+        var loader = $('.at-tours-loader');
+        if (toursLoadingStarted == undefined) {
+            if (loader.length > 0 && loader.is(':visible')) {
+                if (dataLayer) {
+                    toursLoadingStarted = new Date().getTime();
+                    dataLayer.push({
+                        'event': 'gaTriggerEvent',
+                        'gaEventCategory': 'Otpusk Offers Loading',
+                        'gaEventAction': 'Loading started',
+                        'gaEventLabel': $("#breadCrumbs>span>span[itemprop='title']").text()
+                    });
+                }
+            }
+        } else {
+            if (loader.length == 0 || !loader.is(':visible')) {
+                if (dataLayer) {
+                    dataLayer.push({
+                        'event': 'gaTriggerEvent',
+                        'gaEventCategory': 'Otpusk Offers Loading',
+                        'gaEventAction': 'Loading finished',
+                        'gaEventLabel': parseInt(((new Date().getTime()) - toursLoadingStarted) / 1000)
+                    });
+                }
+                clearInterval(toursLoadingInterval);
+            } else {
+                if (toursLoadingCounter % 20 == 0) {
+                    if (dataLayer) {
+                        dataLayer.push({
+                            'event': 'gaTriggerEvent',
+                            'gaEventCategory': 'Otpusk Offers Processing',
+                            'gaEventAction': 'Processing duration',
+                            'gaEventLabel': parseInt(((new Date().getTime()) - toursLoadingStarted) / 1000)
+                        });
+                    }
+                }
+            }
+        }
+    }, 500);
+
+    setTimeout(function() {
+        // Harcoded bugfix
+        // $('div.hotelsPage div.at-submit-btn').click();
+
+        $('button.at-form-submit_button').click(function() {
+            dataLayer.push({
+                'event': 'gaTriggerEvent',
+                'gaEventCategory': 'Tour search form',
+                'gaEventAction': 'Click Search',
+                'gaEventLabel': $('div.headerMenu_button span').text()
+                + ' ' + $('#apl-from-city').text()
+                + ' ' + $('#apl-tour-duration').text()
+                + ' ' + $('#apl-adults').text()
+                + ' ' + $('#apl-children').text()
+            });
+        });
+    }, 2000);
+
+});

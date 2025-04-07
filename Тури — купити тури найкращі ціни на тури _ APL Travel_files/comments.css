@@ -1,0 +1,282 @@
+.author-block {
+    width: 20%;
+}
+
+.author-name {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #705090;
+}
+
+.city-name {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    padding-top: 7px;
+}
+
+.time-name {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    color: #999999;
+    padding-top: 6px;
+}
+
+.comment-text-block {
+    width: 80%;
+    border: 1px solid #EEEEEE;
+    box-sizing: border-box;
+
+    position: relative;
+    border: 1px solid #EEEEEE;
+}
+
+.arrow-svg {
+    left: -12px;
+    position: absolute;
+    top: 20px;
+}
+
+.comment-title {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FF992F;
+    margin: 20px;
+}
+
+.comment-text {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    margin: 20px;
+}
+
+.useful-block {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: #999999;
+    margin: 20px;
+
+}
+
+.like {
+    vertical-align: text-bottom;
+    margin-left: 16px;
+}
+
+.comment-reply {
+    background: #FBFBFB;
+    margin: 15px;
+    padding: 15px;
+}
+
+.reply-title {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    color: #705090;
+}
+
+.reply-text {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    padding-top: 8px;
+}
+.feedback-exist{
+    padding: 80px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.feedback-exist-header{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 30px;
+    color: #FF992F;
+    padding-top: 10px;
+    padding-left: 25px;
+}
+.block-header {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #FF992F;
+    padding-top: 40px;
+    padding-bottom: 25px;
+}
+
+.comment-block-background {
+    background: #FBFBFB;
+}
+
+.comment-block {
+    display: flex;
+}
+
+.rate {
+    width: 40%;
+}
+
+.rate-header {
+    padding: 40px 40px 0 40px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.rate-stars {
+    padding: 20px 20px 20px 42px;
+    display: flex;
+}
+
+.star {
+    width: 56px;
+    padding-right: 19px;
+}
+
+.star-text {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    color: #999999;
+}
+
+.active-text {
+    color: #FF992F;
+}
+
+.comment-input-block {
+    width: 60%;
+    padding: 40px;
+}
+
+.comment-header {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.name-input {
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 36px;
+    padding: 10px;
+    margin-top: 4px;
+    width: 296px;
+}
+
+.input-header {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    padding-top: 20px;
+}
+
+.line-input {
+    display: flex;
+    margin: 0;
+}
+
+.input_block {
+    width: 50%;
+}
+
+.title-line {
+    width: 100%;
+}
+
+.title-input {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 36px;
+    padding: 10px;
+    margin-top: 4px;
+}
+
+.comment-input {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%
+}
+
+.button-block {
+    padding-right: 40px;
+    padding-bottom: 40px;
+    margin-top: -20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment-button {
+    background: #FF992F;
+    border-radius: 4px;
+    width: 134px;
+    height: 40px;
+    border: none;
+}
+
+.comment-button-text {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 7px 8px 8px 10px;
+}
+.pointer{
+    cursor: pointer;
+}

@@ -1,0 +1,14 @@
+$( function () {
+    var countryBlock=$('.apl-countries-list');
+    $('.country-list-dropdown').on('click',function (e) {
+        countryBlock.show();
+    });
+    $('#uniqtrips_country_modal_close').on('click',function (e) {
+        countryBlock.hide();
+    });
+    $('body').on('click', function(event) {
+        if (!$(event.target).closest(".apl-countries-list,.country-list-dropdown").length) {
+            $("body").find(".apl-countries-list").hide();
+        }
+    });
+} );

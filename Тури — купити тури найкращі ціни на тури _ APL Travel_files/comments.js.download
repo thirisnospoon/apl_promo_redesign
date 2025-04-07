@@ -1,0 +1,29 @@
+$(function () {
+    $('.star').on('click', function () {
+        var id = this.id;
+        $('#stars-input').val(id);
+        var text = $(this).find('.star-text');
+        $('.star-text').each(function () {
+            $(this).removeClass('active-text');
+        })
+        text.addClass('active-text');
+        $('.star').each(function () {
+            var _this = $(this);
+            var kids = _this.children();
+            if (this.id <= id) {
+                if (kids.length > 2) {
+                    $(kids[0]).css('display', 'block')
+                    $(kids[0]).css('margin-bottom', '3px')
+                    $(kids[1]).css('display', 'none')
+                }
+
+            } else {
+                if (kids.length > 2) {
+                    $(kids[0]).css('display', 'none')
+                    $(kids[1]).css('margin-bottom', '3px')
+                    $(kids[1]).css('display', 'block')
+                }
+            }
+        })
+    })
+});

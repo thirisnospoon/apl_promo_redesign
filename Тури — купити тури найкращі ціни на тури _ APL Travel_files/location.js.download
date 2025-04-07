@@ -1,0 +1,38 @@
+$(document).ready(function () {
+
+    var $locations = $('.js-location');
+    var $locationButtons = $('.js-slide-location');
+    var $kiev = $('#location_btn_kiev');
+    var $odessa = $('#location_btn_odessa');
+    $locationButtons.on('click', function () {
+        $locationButtons.removeClass('active');
+        $locations.hide();
+        if($(this).attr('data-target') == '#location-kiev'){
+            $kiev.addClass('active');
+        } else{
+            $odessa.addClass('active')
+        }
+        $($(this).attr('data-target')).show();
+    })
+
+    var $slideButton = $('.main_office_slide_button');
+    $slideButton.on('click', function () {
+        var $attr = $(this).attr('data-target');
+
+        console.log( $($attr));
+        if($attr == '#slide-next'){
+            console.log( $('.main_office_slide_button.right'));
+            $('.main_office_slide_button.right').data('target','#slide-prev');
+            $('.main_office_slide_button.left').data('target','#slide-prev');
+            $('#slide-prev').hide();
+            $($attr).show();
+        }else{
+            console.log(2);
+            $('.main_office_slide_button.right').data('target','#slide-next');
+            $('.main_office_slide_button.left').data('target','#slide-next');
+            $('#slide-next').hide();
+            $($attr).show();
+        }
+    });
+
+});

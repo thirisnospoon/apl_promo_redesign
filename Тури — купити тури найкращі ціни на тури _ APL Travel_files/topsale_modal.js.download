@@ -1,0 +1,12 @@
+(function ( $ ) {
+    $( document ).ready( function () {
+        var topsaleListModal = $( '#topsale-countries' );
+        if ( topsaleListModal.length ) {
+            $('.topsale-link' ).click( function () {
+                console.log(111111);
+                topsaleListModal.modal( 'show' );
+                return false;
+            } )
+        }
+    } );
+})( $ );

@@ -1,0 +1,154 @@
+.ratting_text{
+    color: #FF992F;
+    font-size: 18px;
+    font-weight: bold;
+}
+.ratting_block{
+    margin-top: 5px;
+}
+.promo{
+    margin: 0px 15px 15px 0px;
+    border-radius: 15px;
+    width: 100%;
+    border: 3px solid #FF992F;
+    position: relative;
+    line-height: 40px;
+    padding-bottom: 200px;
+
+}
+.promo-text-title{
+    padding: 26px 26px 0 26px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FF992F;
+}
+.standard{
+    margin: 0px 15px 15px 15px;
+    border-radius: 15px;
+    width: 100%;
+    border: 3px solid #01B20C;
+    position: relative;
+    line-height: 40px;
+    padding-bottom: 200px;
+}
+.standard-text-title{
+    padding: 26px 26px 0 26px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #01B20C;
+}
+.lux{
+    margin: 0px 0px 15px 15px;
+    border-radius: 15px;
+    width: 100%;
+    border: 3px solid #705090;
+    position: relative;
+    padding-bottom: 200px;
+    line-height: 40px;
+}
+.lux-text-title{
+    padding: 26px 26px 0 26px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #705090;
+}
+.text-price{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 60px;
+    align-items: center;
+    text-align: center;
+    color: #FF992F;
+}
+.text-price-info{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    color: #705090;
+    margin-top: -10px;
+}
+.block-button{
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.stars{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.info-box{
+    display: flex;
+    justify-content: start;
+    padding-left: 40px;
+    margin-top: 10px;
+}
+.info-text{
+    padding: 0px 10px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1d1d1f;
+}
+.info-rate{
+    padding-left: 10px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+.line{
+    margin: 18px 15px;
+}
+.stars-margin{
+    margin: 6px;
+}
+.box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.price_block{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.info-box-parent{
+    max-width: 95%;
+}
+.price-button-style{
+    width: 240px;
+}
+
+.padding-before-title{
+    padding-top: 50px;
+}
+
+.padding-before-packages{
+    padding-top: 30px;
+    padding-bottom: 70px;
+}

@@ -1,0 +1,151 @@
+(function($){
+
+    function RequestForm(obj, type) {
+        this.obj = $(obj);
+        this.type = type || 'query';
+        this.form = false;
+        this.title = this.obj.data('title');
+
+        this.obj.on('click', $.proxy(this.actionClick, this));
+    }
+
+    RequestForm.prototype.getModalForm = function() {
+        if ( ! this.form ) {
+            if ( ! document.getElementById('requestFormBox') ) {
+                $('body').append('<div id="requestFormBox"></div>');
+            }
+            this.form = $('#requestFormBox');
+        }
+
+        this.form.dialog({autoOpen: false,
+            closeText: 'Закрыть',
+            width: (this.type === 'query' ? 560 : 720),
+            draggable: false,
+            dialogClass: "RequestFormDialog DialogStyle_1",
+            modal: true, resizable: false, buttons: {},
+            close: function() {$(this).html('');}
+        });
+
+        if ( ! this.title ) {
+            switch(this.type){
+                case 'query':
+                    var target = this.obj.data('target'),
+                        title = this.obj.data('title');
+                    this.title = (title ? title : ( target ? 'Подбор тура в ' + target : 'Подбор тура' ));
+                    break;
+
+                case 'order':
+                    this.title = 'Предварительное бронирование тура';
+                    break;
+            }
+        }
+        this.form.dialog({ title: this.title });
+
+        return this.form;
+    };
+
+    RequestForm.prototype.actionClick = function(e) {
+        if ( e && ( e.which == 2 || ( e.which == 1 && e.ctrlKey ) ) ) {
+            return true;
+        }
+
+        var form = this.getModalForm();
+
+        form.dialog('open').loading('start');
+
+        $.ajax(this.obj.attr('href'), {
+            method : 'GET',
+            cache : false,
+            success : $.proxy(function(data) {
+                form.loading('stop').dialog('close').html(data).dialog('open');
+                $('form#' + this.type + 'Form').on('submit', $.proxy(this.actionSubmit, this));
+            }, this),
+            error : function(data) {
+                form.loading('stop');
+                switch (data.status) {
+                    case 500: form.html('<div class="alert alert-danger">500: Ошибка сервера, невозможно загрузить форму</div>'); break;
+                    case 404: form.html('<div class="alert alert-danger">404: Ошибка соединения с сервером, проверьте есть ли доступ к интернету</div>'); break;
+                    default: form.html('<div class="alert alert-danger"><h3>Ошибка загрузки формы</h3>' +
+                        'Ответ сервера: ' + data.status +' ' + data.responseText + '</div>'); break;
+                }
+                console.error(data.responseText);
+            }
+        });
+
+        return false;
+    };
+
+    RequestForm.prototype.actionSubmit = function(e) {
+        var form = this.getModalForm();
+        var queryForm = form.children('form#' + this.type + 'Form');
+        if ( ! queryForm[0] ) {
+            form.dialog('close');
+            return false;
+        }
+        if ( ! queryForm.valid() ) {
+            return false;
+        }
+
+        var formData = String(queryForm.serialize());
+        console.log(formData);
+        form.loading('start');
+        $.ajax(queryForm.attr('action'), {
+            type: 'POST',
+            cache: false,
+            data: formData,
+            success : $.proxy(function(data) {
+                form.loading('stop').html(data);
+                if ($('form#' + this.type + 'Form')[0]) {
+                    $('form#' + this.type + 'Form').on('submit', $.proxy(this.actionSubmit, this));
+                } else {
+                    form.dialog({ buttons: [ { text: "Закрыть", click: function() { $( this ).dialog( "close" ); } } ] });
+                    form.dialog('open');
+                    var timer = 10;
+                    var formClose = setInterval(function(){
+                        if ( --timer < 0 ) {
+                            form.dialog('close');
+                            clearInterval(formClose);
+                        } else {
+                            form.dialog({ buttons: [ { text: "Закрыть (" + timer + " cекунд)", click: function() { $( this ).dialog( "close" ); } } ] });
+                        }
+                    }, 1000);
+                }
+            }, this),
+            error : function(data) {
+                form.loading('stop');
+                switch (data.status) {
+                    case 500: form.html('500: Ошибка сервера, невозможно отправить форму'); break;
+                    case 404: form.html('404: Ошибка соединения с сервером, проверьте есть ли доступ к интернету'); break;
+                    default: form.html(data.status +': Ошибка отправки формы'); break;
+                }
+                console.error(data.responseText);
+            },
+            complete : function(data, status) {
+                form.dialog('open');
+            }
+        });
+
+        return false;
+    };
+
+    $(document).ready(function(){
+        window.RequestForm = RequestForm;
+        window.requestFormInstances = window.requestFormInstances || [];
+
+        $('a[href*="/order/index"]').map(function(i, obj){
+            requestFormInstances[requestFormInstances.length] = new RequestForm(obj, 'order');
+        });
+
+        $('a[href*="/order/query"]').map(function(i, obj){
+            requestFormInstances[requestFormInstances.length] = new RequestForm(obj, 'query');
+        });
+
+        var hashPosition = window.location.hash.search('order=');
+        if ( hashPosition >= 0 ) {
+            var obj = document.createElement('a');
+            obj.href = '/order/index?request=' + window.location.hash.substr(hashPosition + 6);
+            var order = new RequestForm(obj, 'order');
+            order.actionClick();
+        }
+    });
+})(jQuery);

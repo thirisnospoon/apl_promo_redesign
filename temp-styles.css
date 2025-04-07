@@ -1,0 +1,447 @@
+.temp-header-image {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.temp-h1 {
+    text-align: center;
+    margin: 40px auto 20px; /* Increased top margin for better spacing */
+    font-size: 45px; /* Slightly larger font for more impact */
+    font-weight: 700; /* Bold text for prominence */
+    color: #1f2937; /* A dark, neutral color for better contrast */
+    /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  !* Subtle shadow for depth *!*/
+    letter-spacing: 0.5px; /* Slight spacing for improved legibility */
+    line-height: 1.2; /* Optimal line-height for readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+}
+
+
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0 15px 0;
+    margin: 10px 0 0 0;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.filter-btn {
+    padding: 12px 22px;
+    border: none;
+    background-color: #e5e7eb;
+    color: #111827;
+    font-size: 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:hover {
+    background-color: #d1d5db;
+}
+
+.filter-btn.selected {
+    background-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.sort-dropdown {
+    margin-top: 10px;
+}
+
+.sort-select {
+    height: 50px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    background-color: #e5e7eb;
+    font-size: 16px;
+    color: #111827;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%23111827' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0 !important;
+}
+
+.sort-select:hover {
+    background-color: #d1d5db;
+}
+
+/* Responsive: ensure elements look good on smaller screens */
+@media (min-width: 600px) {
+    .sort-dropdown {
+        margin-top: 0;
+    }
+}
+
+.uniqtrip_preview__wrap {
+    /*height: 130px!important;*/
+}
+
+
+.uniqtrip_list__wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+}
+
+.uniqtrip_preview__footer {
+    width: 360px!important;
+}
+
+.uniqtrip_rewrite {
+    width: 360px !important;
+    margin-bottom: 30px !important;
+    margin-left: 0px !important;
+
+}
+
+.uniqtrip_rewrite:not(.uniqtrip_rewrite-last) {
+    margin-right: 20px !important;
+}
+
+
+.uniqtrip_preview__image {
+    width: 360px !important;
+    height: 240px !important;
+}
+
+img.uniqtrips_previev_image {
+    width: 360px !important;
+    height: 240px !important;
+
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: #fff;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.45);
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+    z-index: 1;
+    /* Fallback gradient if no specific type class is applied */
+    background: linear-gradient(145deg, #ff4081, #f50057);
+}
+
+.status-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    background: inherit;
+    border-top-right-radius: 8px;
+    transform: translate(50%, -50%) rotate(45deg);
+    box-shadow: 0 3.5px 6px rgba(0, 0, 0, 0.35);
+    z-index: -1;
+}
+
+/* Type-specific gradients */
+.status-badge-presale {
+    background: linear-gradient(145deg, #1b87d5, #1460a8);
+}
+
+.status-badge-open {
+    background: linear-gradient(145deg, #43a047, #2e7d32);
+}
+
+.status-badge-last {
+    background: linear-gradient(145deg, #ca800c, #b36f09);
+}
+
+.status-badge-closed {
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+}
+
+
+
+.uniqtrip_preview {
+    /*height: auto!important;*/
+    height: 370px !important;
+}
+
+.button_hover {
+    width: 360px !important;
+    padding: 0 !important;
+}
+
+a.button_style {
+    border-radius: 5px !important;
+    /*width: 100%;*/
+    margin: 10px 10px !important;
+    padding: 0px 115px !important;
+    height: auto !important;
+}
+
+.modern-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.modern-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    color: #fff!important;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+
+.modern-button:hover::before {
+    left: 100%;
+}
+
+.modern-button:hover {
+    background: linear-gradient(135deg, #2c80b4, #256ea1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.why-travel {
+    /* Відступ навколо всього блоку */
+    padding: 2rem;
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    color: #333;
+}
+
+.why-travel__header {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+}
+
+.why-travel__header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.why-travel__header p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* Блок з 2-ма стовпцями (2 в ряд) */
+.why-travel__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 колонки */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Картка */
+.feature-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.feature-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Іконка (демо-зображення) */
+.feature-card__icon {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Заголовок картки */
+.feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Текст картки */
+.feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Адаптація під мобільні пристрої (за потреби) */
+@media (max-width: 600px) {
+    .why-travel__features {
+        grid-template-columns: 1fr; /* По одній картці в ряд */
+    }
+}
+
+
+.why_travel_wrapper {
+    margin-top: 25px;
+}
+
+
+
+
+
+
+
+/* A wrapper that fixes width, hides overflow, and positions arrows */
+.story-wrapper {
+    position: relative;
+    /*width: 320px;        !* or whatever width you prefer *!*/
+    margin: 0 auto;      /* center it on page */
+    overflow: hidden;    /* hide overflowing stories */
+}
+
+/* Container that holds all story cards in a row */
+.story-container {
+    display: flex;       /* place .story cards side-by-side */
+    flex-wrap: nowrap;
+    /* If you want a bit of spacing between stories: */
+    gap: 10px;
+    scroll-behavior: smooth;
+}
+
+/* Each individual story card */
+.story {
+    flex: 0 0 auto;      /* do not grow/shrink, keep fixed width */
+    width: 300px;        /* 9:16 ratio for phone video with some gap */
+    height: 533px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Embedded video fills entire story card */
+.story iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* "Instagram-like" top bar */
+.story-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 54px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    box-sizing: border-box;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0)
+    ); /* fade out overlay */
+}
+
+.story-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    border: 2px solid #fff;
+}
+
+.story-username {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.story-close {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+/* Simple "progress bar" (could animate in JS if desired) */
+.story-progress {
+    position: absolute;
+    top: 54px;        /* just below header */
+    left: 0;
+    height: 2px;
+    width: 0%;        /* you can animate this in JS */
+    background: #fff;
+    z-index: 4;
+}
+
+/* Arrows for slider navigation */
+.story-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    padding: 5px 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+
+.story-nav-left {
+    left: 5px;
+}
+
+.story-nav-right {
+    right: 5px;
+}
+
+.stories-header {
+    text-align: center;
+    margin: 20px 0 20px 0;
+    font-size: 2rem;
+}
+

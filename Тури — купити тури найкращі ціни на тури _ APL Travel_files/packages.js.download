@@ -1,0 +1,15 @@
+$(function () {
+    $('#sort_type').change ( function (e) {
+        var valueSelected = this.value;
+        var url=new URL(window.location.href);
+        url.searchParams.delete('sort_type');
+        url.searchParams.set('sort_type',valueSelected);
+        window.location.href=url.href;
+    });
+});
+$(function () {
+    $('#drop_info').click(function () {
+        $('.plan_dropdown_text').hide();
+        $('.additional_info').show();
+    })
+});

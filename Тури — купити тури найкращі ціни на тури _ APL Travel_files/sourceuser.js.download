@@ -1,0 +1,33 @@
+;
+function sourceuser(config, identify){
+    //console.log('sourceuser', config, identify);
+    function showUserIdentify(id){
+        $('#user_identify__message .strong')
+            .text(id);
+        $('#user_identify')
+            .show()
+
+        // SEND USER ID TO dataLayer #10660
+        if(typeof dataLayer !== 'undefined' && Array.isArray(dataLayer)) {
+            dataLayer.push({
+                'userID': id
+            });
+        }
+    };
+    if (!identify) {
+        config.callback = function(){
+            //console.log('callback, load user indentify');
+            $(function(){
+                $.get('/getuseridentify', function(data){
+                    console.log('loaded', data);
+                    if (data.identify > 0) {
+                        showUserIdentify(data.identify);
+                    }
+                }, 'json');
+            });
+        };
+    } else {
+        showUserIdentify(identify);
+    }
+    sbjs.init(config);
+};

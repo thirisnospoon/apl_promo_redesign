@@ -1,0 +1,15 @@
+(function () {
+    console.log("Ringostat error: The script URL doesn’t exist");
+  var ringostat = function () {
+  };
+
+  var gaObjectName = (window.GoogleAnalyticsObject) ? window.GoogleAnalyticsObject : 'ga';
+  if (!window[gaObjectName]) {
+    window[gaObjectName] = function () {
+      window[gaObjectName].q = window[gaObjectName].q || [];
+      window[gaObjectName].q.push(arguments);
+    };
+  }
+  window[gaObjectName]('provide', 'ringostat', ringostat);
+
+})();

@@ -1,0 +1,64 @@
+.carousel-header{
+    padding-top: 40px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height, or 125% */
+
+    text-transform: uppercase;
+
+    /* Grey */
+
+    color: #999999;
+}
+.image-carousel{
+    margin: 0px -5px 0px -5px;
+}
+.image-card{
+    padding: 5px;
+}
+.image-card-style{
+    width: 370px;
+    height: 370px;
+}
+.image-text-style{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    opacity: 0;
+    color: #FFFFFF;
+    position: relative;
+    margin-top: -227px;
+    padding-bottom: 162px;
+}
+.black-background{
+    width: 370px;
+    height: 370px;
+    background: rgba(0, 0, 0, 0.0);
+    margin-top: -370px;
+    position: absolute;
+}
+.price-size{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+
+    color: #000000;
+}
+
+.price-size-no-color{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+}
