@@ -445,3 +445,26 @@ a.button_style {
     margin: 20px 0 20px 0;
     font-size: 2rem;
 }
+
+/* Container for the SVG heart icon */
+.story-heart {
+    position: absolute;
+    bottom: 12px;    /* adjust as needed */
+    right: 12px;     /* adjust as needed */
+    cursor: pointer;
+    user-select: none; /* prevent text selection on click */
+}
+
+/* Heart SVG itself */
+.story-heart .heart-icon {
+    width: 36px;
+    height: 36px;
+    fill: #ccc; /* "empty" heart color */
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+/* When hearted, switch to red + scale up slightly */
+.story-heart.hearted .heart-icon {
+    fill: #e0245e; /* A nice, vibrant red/pink; pick any color you like */
+    transform: scale(1.2);
+}

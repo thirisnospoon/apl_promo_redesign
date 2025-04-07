@@ -1721,61 +1721,145 @@
         <div class="story-container" id="storyContainer">
             <!-- Story #1 -->
             <div class="story">
-                <!-- "Instagram-like" header (avatar, username, close icon) -->
+                <!-- "Instagram-like" header (avatar, username) -->
                 <div class="story-header">
                     <img class="story-avatar"
                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqPc3ldbNORCrrpuwOr40mH0QesaaYqVVS3A&s"
                          alt="Avatar">
                     <span class="story-username">APL Travel</span>
-                    <span class="story-close">&times;</span>
                 </div>
+
                 <div class="story-progress"></div>
+
                 <video autoplay muted loop playsinline>
                     <source src="/videos/1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
+                <!-- Heart icon in bottom-right corner using an inline SVG -->
+                <div class="story-heart" data-filename="1.mp4">
+                    <svg viewBox="0 0 24 24" class="heart-icon">
+                        <!--
+                          A common heart path. Feel free to replace with your own
+                          custom path or design.
+                        -->
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36
+               2 12.28 2 8.5 2 5.42 4.42
+               3 7.5 3c1.74 0 3.41.81
+               4.5 2.09C13.09 3.81 14.76
+               3 16.5 3 19.58 3 22
+               5.42 22 8.5c0 3.78-3.4
+               6.86-8.55 11.54L12
+               21.35z"/>
+                    </svg>
+                </div>
             </div>
+
 
             <!-- Story #2 -->
             <div class="story">
+                <!-- "Instagram-like" header (avatar, username) -->
                 <div class="story-header">
                     <img class="story-avatar"
                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqPc3ldbNORCrrpuwOr40mH0QesaaYqVVS3A&s"
                          alt="Avatar">
                     <span class="story-username">APL Travel</span>
-                    <span class="story-close">&times;</span>
                 </div>
+
                 <div class="story-progress"></div>
+
                 <video autoplay muted loop playsinline>
                     <source src="/videos/2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
+                <!-- Heart icon in bottom-right corner using an inline SVG -->
+                <div class="story-heart" data-filename="1.mp4">
+                    <svg viewBox="0 0 24 24" class="heart-icon">
+                        <!--
+                          A common heart path. Feel free to replace with your own
+                          custom path or design.
+                        -->
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36
+               2 12.28 2 8.5 2 5.42 4.42
+               3 7.5 3c1.74 0 3.41.81
+               4.5 2.09C13.09 3.81 14.76
+               3 16.5 3 19.58 3 22
+               5.42 22 8.5c0 3.78-3.4
+               6.86-8.55 11.54L12
+               21.35z"/>
+                    </svg>
+                </div>
             </div>
 
-            <!-- Story #3 -->
             <div class="story">
+                <!-- "Instagram-like" header (avatar, username) -->
                 <div class="story-header">
                     <img class="story-avatar"
                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqPc3ldbNORCrrpuwOr40mH0QesaaYqVVS3A&s"
                          alt="Avatar">
                     <span class="story-username">APL Travel</span>
-                    <span class="story-close">&times;</span>
                 </div>
+
                 <div class="story-progress"></div>
+
                 <video autoplay muted loop playsinline>
                     <source src="/videos/3.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+
+                <!-- Heart icon in bottom-right corner using an inline SVG -->
+                <div class="story-heart" data-filename="1.mp4">
+                    <svg viewBox="0 0 24 24" class="heart-icon">
+                        <!--
+                          A common heart path. Feel free to replace with your own
+                          custom path or design.
+                        -->
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36
+               2 12.28 2 8.5 2 5.42 4.42
+               3 7.5 3c1.74 0 3.41.81
+               4.5 2.09C13.09 3.81 14.76
+               3 16.5 3 19.58 3 22
+               5.42 22 8.5c0 3.78-3.4
+               6.86-8.55 11.54L12
+               21.35z"/>
+                    </svg>
+                </div>
             </div>
 
             <!-- Repeat more stories if needed... -->
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const hearts = document.querySelectorAll('.story-heart');
+
+                hearts.forEach(function (heart) {
+                    // Identify the file associated with this heart:
+                    const filename = heart.getAttribute('data-filename');
+                    const localStorageKey = 'hearted_' + filename;
+
+                    // Check if previously liked in localStorage:
+                    const isAlreadyHearted = localStorage.getItem(localStorageKey) === 'true';
+                    if (isAlreadyHearted) {
+                        heart.classList.add('hearted');
+                    }
+
+                    // Toggle on click:
+                    heart.addEventListener('click', function () {
+                        heart.classList.toggle('hearted');
+                        const isNowHearted = heart.classList.contains('hearted');
+
+                        // Persist new state in localStorage:
+                        localStorage.setItem(localStorageKey, isNowHearted ? 'true' : 'false');
+                    });
+                });
+            });
+        </script>
+
 
         <!-- Right arrow for manual sliding -->
         <div class="story-nav story-nav-right" onclick="scrollStories(1)">&#10095;</div>
     </div>
-
-
 
 
     <div class="clearfix" id="main-content">
